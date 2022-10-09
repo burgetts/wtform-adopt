@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} {{pet.name}} {% endblock %}
+
+{% block content %}
+<h2 class="text-center"> <i> {{pet.species}}
+
+    {% if pet.age != None %}
+     , {{pet.age}}
+    {% endif %}
+
+</i></h2>
+
+<div class="text-center">
+    <img class="detail" src="{{pet.photo_url}}">
+</div>
+
+<form action="/{{pet.id}}" method="post">
+    {{form.hidden_tag()}}
+
+    {% for field in form
+        if field.widget.input_type != 'hidden' %}
+
+        <div class="form-group m-3 col-md-6">
+
+            {{field.label(class_="col-form-label")}} <br>
+            {{field}}
+    
+            {% for error in field.errors%}
+    
+            <small class="text-danger")>
+            {{ error }}
+            </small>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <button class="btn btn-lg btn-success m-4"> Edit Pet </button>
+</form>
+
+{% endblock %}

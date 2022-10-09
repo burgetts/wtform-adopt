@@ -1,0 +1,16 @@
+img {
+    height: 100px;
+    width: 100px;
+}
+.pet {
+    display: inline-block;
+}
+
+input-field {
+    width: 75%
+}
+
+.detail {
+    height: 400px;
+    width: 400px;
+}
